@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Proyecto1
+{
+    internal class Vehiculo
+    {
+        public string Matricula { get; set; }
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public string Color { get; set; }
+
+        public Vehiculo(string matricula, string marca, string modelo, string color)
+        {
+            Matricula = matricula;
+            Marca = marca;
+            Modelo = modelo;
+            Color = color;
+        }
+    }
+}
