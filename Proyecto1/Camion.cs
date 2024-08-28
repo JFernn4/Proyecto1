@@ -11,5 +11,6 @@ namespace Proyecto1
         public Camion(string matricula, string marca, string modelo, string color, Cliente propietario) : base(matricula, marca, modelo, color, propietario)
         {
         }
+        
     }
 }

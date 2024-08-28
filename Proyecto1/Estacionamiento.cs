@@ -8,6 +8,7 @@ namespace Proyecto1
 {
     internal class Estacionamiento
     {
+        List<Vehiculo> listaVehiculos = new List<Vehiculo>();
         public int EspaciosDisponibles { get; set; }
 
         public Estacionamiento(int espaciosDisponibles)
@@ -26,6 +27,28 @@ namespace Proyecto1
             Console.WriteLine("Se ha registrado el estacionamiento.");
             Console.ReadKey();
             Console.Clear();
+        }
+        public void RegistrarVehiculo(Vehiculo vehiculo)
+        {
+            listaVehiculos.Add(vehiculo);
+            Console.WriteLine("Se ha registrado el vehículo.");
+            Console.ReadKey();
+        }
+        public void RegisrarAutomovil()
+        {
+            Console.Clear ();
+            Console.WriteLine("-------------------");
+            Console.WriteLine("REGISTRAR AUTOMOVIL");
+            Console.WriteLine("-------------------");
+            Console.Write("o Estacionamiento asignado:");
+            Console.Write("o Matrícula:");
+            Console.Write("o Marca:");
+            Console.Write("o Modelo:");
+            Console.Write("o Color:");
+            Console.Write("o Matrícula:");
+            Console.Write("o Propietario:");
+            RegistrarVehiculo();
+
         }
     }
 }
