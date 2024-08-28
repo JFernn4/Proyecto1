@@ -8,7 +8,7 @@ namespace Proyecto1
 {
     internal class Motocicleta : Vehiculo
     {
-        public Motocicleta(string matricula, string marca, string modelo, string color) : base(matricula, marca, modelo, color)
+        public Motocicleta(string matricula, string marca, string modelo, string color, Cliente propietario) : base(matricula, marca, modelo, color, propietario)
         {
         }
     }

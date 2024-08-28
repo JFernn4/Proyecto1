@@ -12,13 +12,15 @@ namespace Proyecto1
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public string Color { get; set; }
+        public Cliente Propietario { get; set; }
 
-        public Vehiculo(string matricula, string marca, string modelo, string color)
+        public Vehiculo(string matricula, string marca, string modelo, string color, Cliente propietario)
         {
             Matricula = matricula;
             Marca = marca;
             Modelo = modelo;
             Color = color;
+            Propietario = propietario;
         }
     }
 }

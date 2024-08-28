@@ -8,7 +8,7 @@ namespace Proyecto1
 {
     internal class Estacionamiento
     {
-        public int espaciosDisponibles { get; set; }
+        public int EspaciosDisponibles { get; set; }
 
         public Estacionamiento(int espaciosDisponibles)
         {
