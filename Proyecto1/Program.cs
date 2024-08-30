@@ -2,6 +2,7 @@
 
 bool menu= true;
 int opcion= 0;
+Estacionamiento estacionamiento= new Estacionamiento(0);
 Estacionamiento.RegistrarEstacionamiento();
 while (menu)
 {
@@ -11,16 +12,17 @@ while (menu)
     {
         case 1:
             {
-                MostrarMenuVehiculos();
+                estacionamiento.RegistrarCliente();
                 break;
             }
         case 2:
             {
-                MostrarMenuRetirarVehiculos();
+                MostrarMenuVehiculos(estacionamiento);
                 break;
             }
         case 3:
             {
+                MostrarMenuRetirarVehiculos();
                 break;
             }
         case 4:
@@ -41,13 +43,14 @@ static void MostrarMenu()
     Console.WriteLine("---------------------------------------------");
     Console.WriteLine("SISTEMA DE GESTIÓN Y COBRO DE ESTACIONAMIENTO");
     Console.WriteLine("---------------------------------------------");
-    Console.WriteLine("(1) Registo de vehículos.");
-    Console.WriteLine("(2) Retiro de vehículos.");
-    Console.WriteLine("(3) Visualización de vehículos estacionados.");
-    Console.WriteLine("(4) Visualización de espacios disponibles.");
-    Console.WriteLine("(5) Salir.");
+    Console.WriteLine("(1) Registo de clientes.");
+    Console.WriteLine("(2) Registo de vehículos.");
+    Console.WriteLine("(3) Retiro de vehículos.");
+    Console.WriteLine("(4) Visualización de vehículos estacionados.");
+    Console.WriteLine("(5) Visualización de espacios disponibles.");
+    Console.WriteLine("(6) Salir.");
 }
-static void MostrarMenuVehiculos()
+static void MostrarMenuVehiculos(Estacionamiento estacionamiento)
 { 
     bool menuVehiculos = true;
     int opcion = 0;
@@ -66,6 +69,7 @@ static void MostrarMenuVehiculos()
         {
             case 1:
                 {
+                    estacionamiento.RegisrarAutomovil();
                     break;
                 }
             case 2:

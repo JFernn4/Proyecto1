@@ -8,7 +8,7 @@ namespace Proyecto1
 {
     internal class Camion : Vehiculo
     {
-        public Camion(string matricula, string marca, string modelo, string color, Cliente propietario) : base(matricula, marca, modelo, color, propietario)
+        public Camion(string estacionamientoAsignado, string matricula, string marca, string modelo, string color, Cliente propietario) : base(estacionamientoAsignado, matricula, marca, modelo, color, propietario)
         {
         }
         
