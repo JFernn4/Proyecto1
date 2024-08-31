@@ -14,6 +14,7 @@ namespace Proyecto1
         public string Modelo { get; set; }
         public string Color { get; set; }
         public Cliente Propietario { get; set; }
+        public DateTime HoraRegistro { get; set; }
         public Vehiculo(string estacionamientoAsignado, string matricula, string marca, string modelo, string color, Cliente propietario)
         {
             EstacionamientoAsignado= estacionamientoAsignado;
@@ -22,6 +23,7 @@ namespace Proyecto1
             Modelo = modelo;
             Color = color;
             Propietario = propietario;
+            HoraRegistro = DateTime.Now;
         }
     }
 }

@@ -3,7 +3,7 @@
 bool menu= true;
 int opcion= 0;
 Estacionamiento estacionamiento= new Estacionamiento(0);
-Estacionamiento.RegistrarEstacionamiento();
+estacionamiento= estacionamiento.RegistrarEstacionamiento();
 while (menu)
 {
     MostrarMenu();
@@ -22,7 +22,7 @@ while (menu)
             }
         case 3:
             {
-                MostrarMenuRetirarVehiculos();
+                estacionamiento.RetirarVehiculo();
                 break;
             }
         case 4:
@@ -40,9 +40,11 @@ while (menu)
 static void MostrarMenu()
 {
     Console.Clear();
+    Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("---------------------------------------------");
     Console.WriteLine("SISTEMA DE GESTIÓN Y COBRO DE ESTACIONAMIENTO");
     Console.WriteLine("---------------------------------------------");
+    Console.ResetColor();
     Console.WriteLine("(1) Registo de clientes.");
     Console.WriteLine("(2) Registo de vehículos.");
     Console.WriteLine("(3) Retiro de vehículos.");
@@ -57,9 +59,11 @@ static void MostrarMenuVehiculos(Estacionamiento estacionamiento)
     while (menuVehiculos)
     {
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("----------------------");
         Console.WriteLine("REGISTRO DE VEHÍCULOS");
         Console.WriteLine("----------------------");
+        Console.ResetColor();
         Console.WriteLine("(1) Automóvil.");
         Console.WriteLine("(2) Motocicleta.");
         Console.WriteLine("(3) Camión.");
@@ -69,15 +73,17 @@ static void MostrarMenuVehiculos(Estacionamiento estacionamiento)
         {
             case 1:
                 {
-                    estacionamiento.RegisrarAutomovil();
+                    estacionamiento.RegistrarAutomovil(estacionamiento);
                     break;
                 }
             case 2:
                 {
+                    estacionamiento.RegistrarMotocicleta(estacionamiento);
                     break;
                 }
             case 3:
                 {
+                    estacionamiento.RegistrarCamion(estacionamiento);
                     break;
                 }
             case 4:
@@ -95,9 +101,11 @@ static void MostrarMenuRetirarVehiculos()
         while (menuRetirar)
         {
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("----------------------");
         Console.WriteLine("RETIRO DE VEHÍCULOS");
         Console.WriteLine("----------------------");
+        Console.ResetColor();
         Console.WriteLine("Seleccione el método de pago.");
         Console.WriteLine("(1) Pago con efectivo.");
         Console.WriteLine("(2) Pago con tarjeta.");
