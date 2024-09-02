@@ -71,7 +71,8 @@ static void MostrarMenu()
     Console.WriteLine("(3) Retiro de vehículos.");
     Console.WriteLine("(4) Visualización de vehículos estacionados.");
     Console.WriteLine("(5) Visualización de espacios disponibles.");
-    Console.WriteLine("(6) Salir.");
+    Console.WriteLine("(6) Buscar vehículo.");
+    Console.WriteLine("(7) Salir.");
 }
 static void MostrarMenuVehiculos(Estacionamiento estacionamiento)
 { 
