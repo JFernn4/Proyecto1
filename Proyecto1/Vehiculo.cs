@@ -27,7 +27,7 @@ namespace Proyecto1
         }
         public virtual string MostrarDetalles()
         {
-            return $" Estacionamiento: {EstacionamientoAsignado}, Matrícula: {Matricula}, Marca: {Marca}, Modelo: {Modelo}, Color: {Color}, Propietario: {Propietario}.";
+            return $" Estacionamiento: {EstacionamientoAsignado}, Matrícula: {Matricula}, Marca: {Marca}, Modelo: {Modelo}, Color: {Color}, Propietario: {Propietario.Nombre}.";
         }
     }
 }

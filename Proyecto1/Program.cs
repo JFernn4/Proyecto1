@@ -39,6 +39,11 @@ while (menu)
                 }
             case 6:
                 {
+                    estacionamiento.BuscarVehiculo();
+                    break;
+                }
+            case 7:
+                {
                     Console.Clear();
                     menu = false;
                     break;
@@ -74,39 +79,49 @@ static void MostrarMenuVehiculos(Estacionamiento estacionamiento)
     int opcion = 0;
     while (menuVehiculos)
     {
-        Console.Clear();
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("----------------------");
-        Console.WriteLine("REGISTRO DE VEHÍCULOS");
-        Console.WriteLine("----------------------");
-        Console.ResetColor();
-        Console.WriteLine("(1) Automóvil.");
-        Console.WriteLine("(2) Motocicleta.");
-        Console.WriteLine("(3) Camión.");
-        Console.WriteLine("(4) Salir.");
-        opcion = Convert.ToInt32(Console.ReadLine());
-        switch (opcion)
+        try
         {
-            case 1:
-                {
-                    estacionamiento.RegistrarAutomovil();
-                    break;
-                }
-            case 2:
-                {
-                    estacionamiento.RegistrarMotocicleta();
-                    break;
-                }
-            case 3:
-                {
-                    estacionamiento.RegistrarCamion();
-                    break;
-                }
-            case 4:
-                {
-                    menuVehiculos = false;
-                    break;
-                }
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("----------------------");
+            Console.WriteLine("REGISTRO DE VEHÍCULOS");
+            Console.WriteLine("----------------------");
+            Console.ResetColor();
+            Console.WriteLine("(1) Automóvil.");
+            Console.WriteLine("(2) Motocicleta.");
+            Console.WriteLine("(3) Camión.");
+            Console.WriteLine("(4) Salir.");
+            opcion = Convert.ToInt32(Console.ReadLine());
+            switch (opcion)
+            {
+                case 1:
+                    {
+                        estacionamiento.RegistrarAutomovil();
+                        break;
+                    }
+                case 2:
+                    {
+                        estacionamiento.RegistrarMotocicleta();
+                        break;
+                    }
+                case 3:
+                    {
+                        estacionamiento.RegistrarCamion();
+                        break;
+                    }
+                case 4:
+                    {
+                        menuVehiculos = false;
+                        break;
+                    }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Ingresa un número del 1 al 4.");
+            Console.ResetColor();
+            Console.ReadKey();
         }
     }
 }

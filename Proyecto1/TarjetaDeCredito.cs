@@ -11,9 +11,9 @@ namespace Proyecto1
         private string NumeroTarjeta;
         private string NombreDeTitular;
         private string FechaVencimiento;
-        private int CVV;
+        private string CVV;
 
-        public TarjetaDeCredito(string numeroTarjeta, string nombreDeTitular, string fechaVencimiento, int cVV)
+        public TarjetaDeCredito(string numeroTarjeta, string nombreDeTitular, string fechaVencimiento, string cVV)
         {
             this.NumeroTarjeta = numeroTarjeta;
             this.NombreDeTitular = nombreDeTitular;
@@ -22,7 +22,7 @@ namespace Proyecto1
         }
         public bool Validar()
         {
-            if (NumeroTarjeta.Length == 16 && CVV.ToString().Length == 3 && ValidarFecha())
+            if (NumeroTarjeta.Length == 16 && CVV.Length == 3 && ValidarFecha())
             {
                 return true;
             }

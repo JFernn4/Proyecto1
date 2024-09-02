@@ -8,11 +8,11 @@ namespace Proyecto1
 {
     internal class Cliente
     {
-        public int ID {  get; set; }
+        public string ID {  get; set; }
         public string Nombre { get; set; }
         private TarjetaDeCredito TarjetaDeCredito { get; set; }
 
-        public Cliente(int iD, string nombre)
+        public Cliente(string iD, string nombre)
         {
             ID = iD;
             Nombre = nombre;
