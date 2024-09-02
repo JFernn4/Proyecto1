@@ -94,6 +94,12 @@ namespace Proyecto1
             }
                 else
                 {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("-------------------");
+                    Console.WriteLine("REGISTRAR AUTOMOVIL");
+                    Console.WriteLine("-------------------");
+                    Console.ResetColor();
                     Console.WriteLine("No se ha encontrado al propietario, regístrelo si no lo está.");
                     Console.ReadKey();
                 }
@@ -101,6 +107,11 @@ namespace Proyecto1
             else
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("-------------------");
+                Console.WriteLine("REGISTRAR AUTOMOVIL");
+                Console.WriteLine("-------------------");
+                Console.ResetColor();
                 Console.WriteLine("No hay espacios disponibles para registrar el vehículo.");
                 Console.ReadKey();
             }
@@ -111,9 +122,9 @@ namespace Proyecto1
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("-------------------");
+                Console.WriteLine("---------------------");
                 Console.WriteLine("REGISTRAR MOTOCICLETA");
-                Console.WriteLine("-------------------");
+                Console.WriteLine("---------------------");
                 Console.ResetColor();
                 Console.Write("o Propietario:");
                 string propietarioBuscar = Console.ReadLine();
@@ -135,6 +146,12 @@ namespace Proyecto1
                 }
                 else
                 {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("---------------------");
+                    Console.WriteLine("REGISTRAR MOTOCICLETA");
+                    Console.WriteLine("---------------------");
+                    Console.ResetColor();
                     Console.WriteLine("No se ha encontrado al propietario, regístrelo si no lo está.");
                     Console.ReadKey();
                 }
@@ -142,6 +159,11 @@ namespace Proyecto1
             else
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("---------------------");
+                Console.WriteLine("REGISTRAR MOTOCICLETA");
+                Console.WriteLine("---------------------");
+                Console.ResetColor();
                 Console.WriteLine("No hay espacios disponibles para registrar el vehículo.");
                 Console.ReadKey();
             }
@@ -152,9 +174,9 @@ namespace Proyecto1
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("-------------------");
+                Console.WriteLine("----------------");
                 Console.WriteLine("REGISTRAR CAMIÓN");
-                Console.WriteLine("-------------------");
+                Console.WriteLine("----------------");
                 Console.ResetColor();
                 Console.Write("o Propietario:");
                 string propietarioBuscar = Console.ReadLine();
@@ -176,6 +198,12 @@ namespace Proyecto1
                 }
                 else
                 {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("----------------");
+                    Console.WriteLine("REGISTRAR CAMIÓN");
+                    Console.WriteLine("----------------");
+                    Console.ResetColor();
                     Console.WriteLine("No se ha encontrado al propietario, regístrelo si no lo está.");
                     Console.ReadKey();
                 }
@@ -183,12 +211,18 @@ namespace Proyecto1
             else
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("----------------");
+                Console.WriteLine("REGISTRAR CAMIÓN");
+                Console.WriteLine("----------------");
+                Console.ResetColor();
                 Console.WriteLine("No hay espacios disponibles para registrar el vehículo.");
                 Console.ReadKey();
             }
         }
         public void RetirarVehiculo()
         {
+            double costo = 0;
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("-------------------");
@@ -205,39 +239,103 @@ namespace Proyecto1
                 {
                     TimeSpan tiempoEstacionado = DateTime.Now - vehiculo.HoraRegistro;
                     double tarifaPorHora = 10.0;
-                    double costo = Math.Ceiling(tiempoEstacionado.TotalHours) * tarifaPorHora;
+                    costo = Math.Ceiling(tiempoEstacionado.TotalHours) * tarifaPorHora;
                     Console.WriteLine($"El vehículo estuvo estacionado por {tiempoEstacionado.TotalHours:F2} horas.");
-                    Console.WriteLine($"El costo total es: Q. {costo}.");
-                    listaVehiculos.Remove(vehiculo);
-                    EspaciosDisponibles++;
+                    Console.WriteLine($"El costo total es: Q. {costo}.00");
+                    Console.ReadKey();
                 }
                 if (vehiculo is Automovil automovil)
                 {
                     TimeSpan tiempoEstacionado = DateTime.Now - vehiculo.HoraRegistro;
                     double tarifaPorHora = 15.0;
-                    double costo = Math.Ceiling(tiempoEstacionado.TotalHours) * tarifaPorHora;
+                    costo = Math.Ceiling(tiempoEstacionado.TotalHours) * tarifaPorHora;
                     Console.WriteLine($"El vehículo estuvo estacionado por {tiempoEstacionado.TotalHours:F2} horas.");
-                    Console.WriteLine($"El costo total es: Q. {costo}.");
-                    listaVehiculos.Remove(vehiculo);
-                    EspaciosDisponibles++;
+                    Console.WriteLine($"El costo total es: Q. {costo}.00");
+                    Console.ReadKey();
                 }
                 if (vehiculo is Camion camion)
                 {
                     TimeSpan tiempoEstacionado = DateTime.Now - vehiculo.HoraRegistro;
                     double tarifaPorHora = 20.0;
-                    double costo = Math.Ceiling(tiempoEstacionado.TotalHours) * tarifaPorHora;
+                    costo = Math.Ceiling(tiempoEstacionado.TotalHours) * tarifaPorHora;
                     Console.WriteLine($"El vehículo estuvo estacionado por {tiempoEstacionado.TotalHours:F2} horas.");
-                    Console.WriteLine($"El costo total es: Q. {costo}.");
-                    listaVehiculos.Remove(vehiculo);
-                    EspaciosDisponibles++;
+                    Console.WriteLine($"El costo total es: Q. {costo}.00");
+                    Console.ReadKey();
                 }
+                bool menuRetirar = true;
+                int opcion = 0;
+                while (menuRetirar)
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("-------------------");
+                    Console.WriteLine("RETIRO DE VEHÍCULOS");
+                    Console.WriteLine("-------------------");
+                    Console.ResetColor();
+                    Console.WriteLine("Seleccione el método de pago.");
+                    Console.WriteLine("(1) Pago con efectivo.");
+                    Console.WriteLine("(2) Pago con tarjeta.");
+                    Console.WriteLine("(3) Salir.");
+                    opcion = Convert.ToInt32(Console.ReadLine());
+                    switch (opcion)
+                    {
+                        case 1:
+                            {
+                                Console.Clear();
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("-------------------");
+                                Console.WriteLine("RETIRO DE VEHÍCULOS");
+                                Console.WriteLine("-------------------");
+                                Console.ResetColor();
+                                Console.WriteLine($"El total es de Q. {costo}, ingrese el efectivo.");
+                                double pago = Convert.ToInt32(Console.ReadLine());
+                                double cambio = pago - costo;
+                                Console.WriteLine($"Su cambio es de Q.{cambio}");
 
+                                int div200 = (int)cambio / 200;
+                                int mod200 = (int)cambio % 200;
+                                int div100 = mod200 / 100;
+                                int mod100 = mod200 % 100;
+                                int div50 = mod100 / 50;
+                                int mod50 = mod100 % 50;
+                                int div20 = mod50 / 20;
+                                int mod20 = mod50 % 20;
+                                int div10 = mod20 / 10;
+                                int mod10 = mod20 % 10;
+                                int div5 = mod10 / 5;
+                                int mod5 = mod10 % 5;
+                                int div1 = mod5 / 1;
+
+                                if (div200 > 0) Console.WriteLine($"- {div200} billetes de Q.200");
+                                if (div100 > 0) Console.WriteLine($"- {div100} billetes de Q.100");
+                                if (div50 > 0) Console.WriteLine($"- {div50} billetes de Q.50");
+                                if (div20 > 0) Console.WriteLine($"- {div20} billetes de Q.20");
+                                if (div10 > 0) Console.WriteLine($"- {div10} billetes de Q.10");
+                                if (div5 > 0) Console.WriteLine($"- {div5} billetes de Q.5");
+                                if (div1 > 0) Console.WriteLine($"- {div1} monedas de Q.1");
+
+                                listaVehiculos.Remove(vehiculo);
+                                EspaciosDisponibles++;
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 2:
+                            {
+                                break;
+                            }
+                        case 3:
+                            {
+                                menuRetirar = false;
+                                break;
+                            }
+                    }
+                }
             }
             else
             {
                 Console.WriteLine("No se encontró un vehículo con esa matrícula.");
+                Console.ReadKey();
             }
-            Console.ReadKey();
         }
         public void MostrarVehiculos()
         {

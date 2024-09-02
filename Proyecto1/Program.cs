@@ -101,38 +101,5 @@ static void MostrarMenuVehiculos(Estacionamiento estacionamiento)
     }
 }
 static void MostrarMenuRetirarVehiculos()
-{
-        bool menuRetirar=true;
-        int opcion = 0;
-        while (menuRetirar)
-        {
-        Console.Clear();
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("----------------------");
-        Console.WriteLine("RETIRO DE VEHÍCULOS");
-        Console.WriteLine("----------------------");
-        Console.ResetColor();
-        Console.WriteLine("Seleccione el método de pago.");
-        Console.WriteLine("(1) Pago con efectivo.");
-        Console.WriteLine("(2) Pago con tarjeta.");
-        Console.WriteLine("(3) Salir.");
-        opcion = Convert.ToInt32(Console.ReadLine());
-        switch (opcion)
-        {
-            case 1:
-                {
-                    break;
-                }
-            case 2:
-                {
-                    break;  
-                }
-            case 3:
-                {
-                    menuRetirar = false;
-                    break;
-                }
-        }
-    }
-        
+{       
 }
