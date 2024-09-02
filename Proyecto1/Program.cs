@@ -6,41 +6,51 @@ Estacionamiento estacionamiento= new Estacionamiento(0);
 estacionamiento= estacionamiento.RegistrarEstacionamiento();
 while (menu)
 {
-    MostrarMenu();
-    opcion= Convert.ToInt32(Console.ReadLine());
-    switch (opcion)
+    try
     {
-        case 1:
-            {
-                estacionamiento.RegistrarCliente();
-                break;
-            }
-        case 2:
-            {
-                MostrarMenuVehiculos(estacionamiento);
-                break;
-            }
-        case 3:
-            {
-                estacionamiento.RetirarVehiculo();
-                break;
-            }
-        case 4:
-            {
-                estacionamiento.MostrarVehiculos();
-                break;
-            }
-        case 5:
-            {
-                estacionamiento.MostrarEspaciosDisponibles();
-                break;
-            }
-        case 6:
-            {
-                Console.Clear();
-                menu = false;
-                break;
-            }
+        MostrarMenu();
+        opcion = Convert.ToInt32(Console.ReadLine());
+        switch (opcion)
+        {
+            case 1:
+                {
+                    estacionamiento.RegistrarCliente();
+                    break;
+                }
+            case 2:
+                {
+                    MostrarMenuVehiculos(estacionamiento);
+                    break;
+                }
+            case 3:
+                {
+                    estacionamiento.RetirarVehiculo();
+                    break;
+                }
+            case 4:
+                {
+                    estacionamiento.MostrarVehiculos();
+                    break;
+                }
+            case 5:
+                {
+                    estacionamiento.MostrarEspaciosDisponibles();
+                    break;
+                }
+            case 6:
+                {
+                    Console.Clear();
+                    menu = false;
+                    break;
+                }
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Ingresa un número del 1 al 7.");
+        Console.ResetColor();
+        Console.ReadKey();
     }
 }
 static void MostrarMenu()
@@ -99,7 +109,4 @@ static void MostrarMenuVehiculos(Estacionamiento estacionamiento)
                 }
         }
     }
-}
-static void MostrarMenuRetirarVehiculos()
-{       
 }

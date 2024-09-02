@@ -283,9 +283,9 @@ namespace Proyecto1
                             {
                                 Console.Clear();
                                 Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine("-------------------");
-                                Console.WriteLine("RETIRO DE VEHÍCULOS");
-                                Console.WriteLine("-------------------");
+                                Console.WriteLine("----------------");
+                                Console.WriteLine("PAGO EN EFECTIVO");
+                                Console.WriteLine("----------------");
                                 Console.ResetColor();
                                 Console.WriteLine($"El total es de Q. {costo}, ingrese el efectivo.");
                                 double pago = Convert.ToInt32(Console.ReadLine());
@@ -321,6 +321,34 @@ namespace Proyecto1
                             }
                         case 2:
                             {
+                                Console.Clear();
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("----------------");
+                                Console.WriteLine("PAGO CON TARJETA");
+                                Console.WriteLine("----------------");
+                                Console.ResetColor();
+                                Console.Write("o Número de la tarjeta (16 dígitos):");
+                                string numeroTarjeta= Console.ReadLine();
+                                Console.Write("o Nombre del titular:");
+                                string nombreTitular= Console.ReadLine();
+                                Console.WriteLine("o Fecha de vencimiento (MM/AA):");
+                                string fechaVencimiento= Console.ReadLine();
+                                Console.WriteLine("o CVV (3 dígitos):");
+                                int cVV= Convert.ToInt32(Console.ReadLine());
+                                TarjetaDeCredito tarjetaDeCredito = new TarjetaDeCredito(numeroTarjeta, nombreTitular, fechaVencimiento, cVV);
+                                if (tarjetaDeCredito.Validar() == true)
+                                {
+                                    Console.WriteLine("Se ha realizado el pago.");
+                                    listaVehiculos.Remove(vehiculo);
+                                    EspaciosDisponibles++;
+                                    Console.ReadKey();
+
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Los datos de la tarjeta son inválidos, inténtelo de nuevo.");
+                                    Console.ReadKey();
+                                }
                                 break;
                             }
                         case 3:
