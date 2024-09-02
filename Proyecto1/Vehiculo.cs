@@ -25,5 +25,9 @@ namespace Proyecto1
             Propietario = propietario;
             HoraRegistro = DateTime.Now;
         }
+        public virtual string MostrarDetalles()
+        {
+            return $" Estacionamiento: {EstacionamientoAsignado}, Matrícula: {Matricula}, Marca: {Marca}, Modelo: {Modelo}, Color: {Color}, Propietario: {Propietario}.";
+        }
     }
 }

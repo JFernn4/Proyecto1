@@ -11,6 +11,9 @@ namespace Proyecto1
         public Camion(string estacionamientoAsignado, string matricula, string marca, string modelo, string color, Cliente propietario) : base(estacionamientoAsignado, matricula, marca, modelo, color, propietario)
         {
         }
-        
+        public override string MostrarDetalles()
+        {
+            return base.MostrarDetalles() + $"(Camión, Q.20.00 por hora)";
+        }
     }
 }

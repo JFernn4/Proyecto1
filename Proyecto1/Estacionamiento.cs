@@ -64,7 +64,7 @@ namespace Proyecto1
             Console.WriteLine("Se ha registrado el cliente.");
             Console.WriteLine("Pulse cualquier tecla para continuar.");
         }
-        public void RegistrarAutomovil(Estacionamiento estacionamiento)
+        public void RegistrarAutomovil()
         {
             if (EspaciosDisponibles > 0)
             {
@@ -105,7 +105,7 @@ namespace Proyecto1
                 Console.ReadKey();
             }
         }
-        public void RegistrarMotocicleta(Estacionamiento estacionamiento)
+        public void RegistrarMotocicleta()
         {
             if (EspaciosDisponibles > 0)
             {
@@ -146,7 +146,7 @@ namespace Proyecto1
                 Console.ReadKey();
             }
         }
-        public void RegistrarCamion(Estacionamiento estacionamiento)
+        public void RegistrarCamion()
         {
             if (EspaciosDisponibles > 0)
             {
@@ -201,18 +201,70 @@ namespace Proyecto1
             Vehiculo vehiculo = listaVehiculos.Find(v => v.Matricula == matricula);
             if (vehiculo != null)
             {
-                TimeSpan tiempoEstacionado = DateTime.Now - vehiculo.HoraRegistro;
-                double tarifaPorHora = 15.0;
-                double costo = Math.Ceiling(tiempoEstacionado.TotalHours) * tarifaPorHora;
-                Console.WriteLine($"El vehículo estuvo estacionado por {tiempoEstacionado.TotalHours:F2} horas.");
-                Console.WriteLine($"El costo total es: Q. {costo}.");
-                listaVehiculos.Remove(vehiculo);
-                EspaciosDisponibles++;
+                if (vehiculo is Motocicleta motocicleta)
+                {
+                    TimeSpan tiempoEstacionado = DateTime.Now - vehiculo.HoraRegistro;
+                    double tarifaPorHora = 10.0;
+                    double costo = Math.Ceiling(tiempoEstacionado.TotalHours) * tarifaPorHora;
+                    Console.WriteLine($"El vehículo estuvo estacionado por {tiempoEstacionado.TotalHours:F2} horas.");
+                    Console.WriteLine($"El costo total es: Q. {costo}.");
+                    listaVehiculos.Remove(vehiculo);
+                    EspaciosDisponibles++;
+                }
+                if (vehiculo is Automovil automovil)
+                {
+                    TimeSpan tiempoEstacionado = DateTime.Now - vehiculo.HoraRegistro;
+                    double tarifaPorHora = 15.0;
+                    double costo = Math.Ceiling(tiempoEstacionado.TotalHours) * tarifaPorHora;
+                    Console.WriteLine($"El vehículo estuvo estacionado por {tiempoEstacionado.TotalHours:F2} horas.");
+                    Console.WriteLine($"El costo total es: Q. {costo}.");
+                    listaVehiculos.Remove(vehiculo);
+                    EspaciosDisponibles++;
+                }
+                if (vehiculo is Camion camion)
+                {
+                    TimeSpan tiempoEstacionado = DateTime.Now - vehiculo.HoraRegistro;
+                    double tarifaPorHora = 20.0;
+                    double costo = Math.Ceiling(tiempoEstacionado.TotalHours) * tarifaPorHora;
+                    Console.WriteLine($"El vehículo estuvo estacionado por {tiempoEstacionado.TotalHours:F2} horas.");
+                    Console.WriteLine($"El costo total es: Q. {costo}.");
+                    listaVehiculos.Remove(vehiculo);
+                    EspaciosDisponibles++;
+                }
+
             }
             else
             {
                 Console.WriteLine("No se encontró un vehículo con esa matrícula.");
             }
+            Console.ReadKey();
+        }
+        public void MostrarVehiculos()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine("VISUALIZACIÓN DE VEHÍCULOS ESTACIONADOS");
+            Console.WriteLine("---------------------------------------");
+            Console.ResetColor();
+            foreach (Vehiculo vehiculo in listaVehiculos)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("o");
+                Console.ResetColor();
+                Console.WriteLine(vehiculo.MostrarDetalles());
+            }
+            Console.ReadKey (); 
+        }
+        public void MostrarEspaciosDisponibles()
+        {
+            Console.Clear ();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("VISUALIZACIÓN DE ESPACIOS DISPONIBLES");
+            Console.WriteLine("-------------------------------------");
+            Console.ResetColor();
+            Console.WriteLine($"Quedan {EspaciosDisponibles} espacios restantes. ");
             Console.ReadKey();
         }
     }

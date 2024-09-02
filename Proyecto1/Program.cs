@@ -27,9 +27,15 @@ while (menu)
             }
         case 4:
             {
+                estacionamiento.MostrarVehiculos();
                 break;
             }
         case 5:
+            {
+                estacionamiento.MostrarEspaciosDisponibles();
+                break;
+            }
+        case 6:
             {
                 Console.Clear();
                 menu = false;
@@ -73,17 +79,17 @@ static void MostrarMenuVehiculos(Estacionamiento estacionamiento)
         {
             case 1:
                 {
-                    estacionamiento.RegistrarAutomovil(estacionamiento);
+                    estacionamiento.RegistrarAutomovil();
                     break;
                 }
             case 2:
                 {
-                    estacionamiento.RegistrarMotocicleta(estacionamiento);
+                    estacionamiento.RegistrarMotocicleta();
                     break;
                 }
             case 3:
                 {
-                    estacionamiento.RegistrarCamion(estacionamiento);
+                    estacionamiento.RegistrarCamion();
                     break;
                 }
             case 4:
